@@ -18,6 +18,14 @@ or run [this script](install/README.md):
 curl -s https://kustomizer.dev/install/kustomizer.sh | sudo bash
 ```
 
+Windows users can download the binary from the [release page](https://github.com/stefanprodan/kustomizer/releases).
+
+If you want to use kustomizer as a kubectl plugin, rename the binary to `kubectl-kustomizer`:
+
+```bash
+mv /usr/local/bin/kustomizer /usr/local/bin/kubectl-kustomizer
+```
+
 ## Usage
 
 Apply a kustomization by pointing Kustomizer to a local dir that contains Kubernetes manifests:
@@ -116,7 +124,7 @@ jobs:
         with:
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
       - name: Install Kustomizer
-        run: curl -s https://kustomizer.dev/install/kustomizer.sh | sudo bash
+        uses: stefanprodan/kustomizer/action@master
       - name: Apply changes
         run: kustomizer apply testdata/plain/ --name=demo --revision=${GITHUB_SHA}
 ```
