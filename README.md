@@ -8,6 +8,7 @@ Kustomizer is a command-line utility for applying kustomizations on Kubernetes c
 Kustomizer garbage collector keeps track of the applied resources and prunes the Kubernetes
 objects that were previously applied on the cluster but are missing from the current revision.
 
+
 ## Install
 
 Download the Kustomizer binary from the 
